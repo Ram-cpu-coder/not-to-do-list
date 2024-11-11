@@ -1,14 +1,8 @@
-.wrapper {
-  /* min-height: 100vh; */
-}
 body {
-  /* background: linear-gradient(rgb(137 138 137), rgb(240 244 241)); */
+  background: linear-gradient(rgb(122, 50, 5), rgb(249, 249, 249));
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-/* .container {
-  --bs-primary-rgb: rgb(255, 10, 10);
-} */
