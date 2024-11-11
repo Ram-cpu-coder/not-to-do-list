@@ -12,3 +12,7 @@ body {
 .container {
   --bs-primary-rgb: rgb(255, 10, 10);
 }
+tr,
+td {
+  background: none;
+}

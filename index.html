@@ -17,13 +17,15 @@
     <link rel="stylesheet" href="style.css" class="css" />
   </head>
   <body>
-    <div class="wrapper">
-      <div class="container bg-primary p-3">
+    <div class="wrapper mx-5">
+      <div class="container bg-primary">
+        <!-- ============ heading =============== -->
         <div class="row p-5">
           <div class="col text-center">
             <h1>Not To Do List</h1>
           </div>
         </div>
+        <!-- ============== input ============= -->
         <div class="row p-5 border rounded shadow-lg mb-5">
           <div class="col-6">
             <div class="mb-3">
@@ -49,25 +51,40 @@
             <button type="button" class="btn btn-primary">Add New Task</button>
           </div>
         </div>
+        <!-- ============== entry and bad list with table lists============= -->
         <div class="row">
           <div class="col">
             <div class="row">
               <div class="col text-center">
                 <h1>Entry List</h1>
                 <hr />
-                <table class="table table-hover">
+                <table class="table table-hover border">
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
+                    <tr class="text-center">
+                      <th scope="row" class="fs-5">1</th>
+                      <td class="fs-5">Task 1</td>
+                      <td class="fs-5">10hrs</td>
+                      <td>
+                        <button type="button" class="btn btn-danger">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <button type="button" class="btn btn-success">
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                      </td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
+                    <tr class="text-center">
+                      <th scope="row" class="fs-5">2</th>
+                      <td class="fs-5">Task 1</td>
+                      <td class="fs-5">10hrs</td>
+                      <td>
+                        <button type="button" class="btn btn-danger">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <button type="button" class="btn btn-success">
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -82,12 +99,32 @@
               </div>
             </div>
             <div class="row">
+              <div class="row">
+                <table class="table table-hover border">
+                  <tbody>
+                    <tr class="text-center">
+                      <th scope="row" class="fs-5">1</th>
+                      <td class="fs-5">Task 1</td>
+                      <td class="fs-5">10hrs</td>
+                      <td>
+                        <button type="button" class="btn btn-danger">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                        <button type="button" class="btn btn-success">
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
               <div class="alert alert-success" role="alert">
-                A simple success alert—check it out!
+                You could have saved 4 hrs!
               </div>
             </div>
           </div>
         </div>
+        <!-- ============= alert message ============== -->
         <div class="row">
           <div class="col">
             <div class="alert alert-success" role="alert">
@@ -95,6 +132,7 @@
             </div>
           </div>
         </div>
+        <!-- =========================== -->
       </div>
     </div>
   </body>
