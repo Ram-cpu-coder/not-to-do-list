@@ -1,8 +1,11 @@
 body {
-  background: linear-gradient(rgb(122, 50, 5), rgb(249, 249, 249));
+  background: linear-gradient(rgb(214, 139, 92), rgb(156, 160, 80));
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+.table {
+  --bs-table-bg: transparent;
 }
