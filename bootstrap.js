@@ -1,3 +1,6 @@
+const toastLiveExample = document.getElementById("liveToast");
+const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+const alertM = document.getElementById("alert-message");
 const WEEKLYHOURALLOCATION = 24 * 7;
 // =============GENERATING THE RANDOM UNIQUE ID===========
 const randomIdGenerator = () => {
@@ -42,11 +45,11 @@ const addTask = () => {
     if (taskObject.hour + calculateTotalHours() <= WEEKLYHOURALLOCATION) {
       taskList.push(taskObject);
       displayTask();
-      const toastLiveExample = document.getElementById("liveToast");
-      const toastBootstrap =
-        bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+      //   ===================================================================
 
+      alertM.innerText = "TASK ADDED";
       toastBootstrap.show();
+      //   ===================================================================
     } else {
       alert("HOUR ALLOCATION EXCEEDED!!");
     }
@@ -62,46 +65,41 @@ const displayTask = () => {
   const badListElement = document.getElementById("bad-list");
   goodListElement.innerHTML = "";
   badListElement.innerHTML = "";
-
+  let goodTaskCount = 0;
+  let badTaskCount = 0;
   taskList.map((item, index) => {
     let goodTrValue = "";
     let badTrValue = "";
     if (item.type === "entry") {
+      goodTaskCount += 1;
       goodTrValue = `
     <tr>              
-    <td>${index + 1}</td>
+    <td>${goodTaskCount}</td>
     <td>${item.task}</td>
     <td>${item.hour}</td>
     <td>
-    <button type="button" class="btn btn-success" onclick = "convertTask('${
-      item.id
-    }')">
+    <button type="button" class="btn btn-success" onclick = "convertTask('${item.id}')">
         <i class="fa-solid fa-arrow-right"></i>
     </button>
-    <button type="button" class="btn btn-danger" onclick = "delList('${
-      item.id
-    }')">
+    <button type="button" class="btn btn-danger" onclick = "delList('${item.id}')">
         <i class="fa-solid fa-trash"></i>
     </button>
     </td>
     </tr>
     `;
     } else {
+      badTaskCount += 1;
       badTrValue = `
     <tr>
     
-    <td>${index + 1}</td>
+    <td>${badTaskCount}</td>
     <td>${item.task}</td>
     <td>${item.hour}</td>
     <td>
-    <button type="button" class="btn btn-warning" onclick = "convertTask('${
-      item.id
-    }')">
+    <button type="button" class="btn btn-warning" onclick = "convertTask('${item.id}')">
     <i class="fa-solid fa-arrow-left"></i>
     </button>
-    <button type="button" class="btn btn-danger" onclick = "delList('${
-      item.id
-    }')">
+    <button type="button" class="btn btn-danger" onclick = "delList('${item.id}')">
     <i class="fa-solid fa-trash"></i>
     </button>
     </td>
@@ -124,10 +122,14 @@ const convertTask = (id) => {
   let task = taskList.find((task) => task.id == id);
   task.type = task.type === "entry" ? "bad" : "entry";
 
+  alertM.innerText = "TASK CONVERTED";
+  toastBootstrap.show();
   displayTask();
 };
 
 const delList = (id) => {
+  alertM.innerText = "TASK DELETED";
+  toastBootstrap.show();
   if (confirm("Deleting task ....  Are you sure?")) {
     taskList = taskList.filter((item) => {
       return item.id != id;
