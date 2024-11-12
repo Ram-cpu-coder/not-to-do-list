@@ -42,13 +42,20 @@
               <input
                 type="number"
                 class="form-control"
-                id="task"
+                id="hour"
                 placeholder="Hours"
               />
             </div>
           </div>
           <div class="col-4">
-            <button type="button" class="btn btn-primary">Add New Task</button>
+            <button
+              type="button"
+              id="addTask"
+              class="btn btn-primary"
+              onclick="addTask()"
+            >
+              Add New Task
+            </button>
           </div>
         </div>
         <!-- ============== entry and bad list with table lists============= -->
@@ -59,8 +66,8 @@
                 <h1>Entry List</h1>
                 <hr />
                 <table class="table table-hover border">
-                  <tbody>
-                    <tr>
+                  <tbody id="entry-list">
+                    <!-- <tr>
                       <th scope="row" class="fs-5">1</th>
                       <td class="fs-5">Task 1</td>
                       <td class="fs-5">10hrs</td>
@@ -72,8 +79,8 @@
                           <i class="fa-solid fa-arrow-right"></i>
                         </button>
                       </td>
-                    </tr>
-                    <tr>
+                    </tr> -->
+                    <!-- <tr>
                       <th scope="row" class="fs-5">2</th>
                       <td class="fs-5">Task 1</td>
                       <td class="fs-5">10hrs</td>
@@ -85,7 +92,7 @@
                           <i class="fa-solid fa-arrow-right"></i>
                         </button>
                       </td>
-                    </tr>
+                    </tr> -->
                   </tbody>
                 </table>
               </div>
@@ -101,7 +108,35 @@
             <div class="row">
               <div class="col">
                 <table class="table table-hover border">
-                  <tbody>
+                  <tbody id="bad-list">
+                    <!-- <tr class="text-center">
+                      <th scope="row" class="fs-5">1</th>
+                      <td class="fs-5">Task 1</td>
+                      <td class="fs-5">10hrs</td>
+                      <td>
+                        <button type="button" class="btn btn-warning">
+                          <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr> -->
+
+                    <!-- <tr class="text-center">
+                      <th scope="row" class="fs-5">1</th>
+                      <td class="fs-5">Task 1</td>
+                      <td class="fs-5">10hrs</td>
+                      <td>
+                        <button type="button" class="btn btn-warning">
+                          <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+
                     <tr class="text-center">
                       <th scope="row" class="fs-5">1</th>
                       <td class="fs-5">Task 1</td>
@@ -115,6 +150,19 @@
                         </button>
                       </td>
                     </tr>
+                    <tr class="text-center">
+                      <th scope="row" class="fs-5">1</th>
+                      <td class="fs-5">Task 1</td>
+                      <td class="fs-5">10hrs</td>
+                      <td>
+                        <button type="button" class="btn btn-warning">
+                          <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger">
+                          <i class="fa-solid fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr> -->
                   </tbody>
                 </table>
               </div>
@@ -139,5 +187,6 @@
         <!-- =========================== -->
       </div>
     </div>
+    <script src="bootstrap.js"></script>
   </body>
 </html>
