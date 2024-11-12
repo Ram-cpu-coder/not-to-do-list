@@ -1,3 +1,4 @@
+// =============GENERATING THE RANDOM UNIQUE ID===========
 const randomIdGenerator = () => {
   let randomStringLength = 10;
   let randomString = "";
@@ -9,7 +10,7 @@ const randomIdGenerator = () => {
   }
   return randomString;
 };
-// ======================================
+// ================ARRAY TASK LIST --- DEFAULT VALUE ======================
 const taskList = [
   {
     id: randomIdGenerator(),
@@ -24,7 +25,7 @@ const taskList = [
     type: "bad",
   },
 ];
-// =============================================
+// ==================FUNCTION - ADD TASK ===========================
 const addTask = () => {
   //   console.log("Addbutton clicked");
   const taskField = document.getElementById("task");
@@ -43,7 +44,7 @@ const addTask = () => {
     alert("Please Enter all the fields!!!!");
   }
 };
-// ===============================================
+// ==================FUNCTION DISPLAY TASK=============================
 const displayTask = () => {
   //   console.log("Displaying the task");
 
@@ -57,8 +58,7 @@ const displayTask = () => {
     let badTrValue = "";
     if (item.type === "entry") {
       goodTrValue = `
-     <tr>
-                    
+    <tr>              
     <td>${index + 1}</td>
     <td>${item.task}</td>
     <td>${item.hour}</td>
@@ -66,15 +66,15 @@ const displayTask = () => {
     <button type="button" class="btn btn-success" onclick = "convertTask('${
       item.id
     }')">
-                          <i class="fa-solid fa-arrow-right"></i>
+        <i class="fa-solid fa-arrow-right"></i>
     </button>
     <button type="button" class="btn btn-danger" onclick = "delList('${
       item.id
     })">
-                          <i class="fa-solid fa-trash"></i>
+        <i class="fa-solid fa-trash"></i>
     </button>
     </td>
-</tr>
+    </tr>
     `;
     } else {
       badTrValue = `
@@ -102,7 +102,7 @@ const displayTask = () => {
     badListElement.innerHTML += badTrValue;
   });
 };
-// ==========================================================
+// ==================FUNCTION TO CONVERT TASK========================================
 const convertTask = (id) => {
   console.log("task converted");
   let task = taskList.find((task) => task.id == id);
@@ -110,10 +110,10 @@ const convertTask = (id) => {
 
   displayTask();
 };
-const delList = () => {
-  let Arr = taskList.filter((item) => {
-    item.id != "${item.id}";
-  });
-  //   return Arr;
-  displayTask(Arr);
-};
+// const delList = () => {
+//   let Arr = taskList.filter((item) => {
+//     item.id != "${item.id}";
+//   });
+//   //   return Arr;
+//   displayTask(Arr);
+// };
