@@ -9,3 +9,6 @@ body {
 .table {
   --bs-table-bg: transparent;
 }
+/* .alert-success {
+  --bs-success-bg-subtle: red;
+} */

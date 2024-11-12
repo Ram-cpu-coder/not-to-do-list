@@ -1,3 +1,4 @@
+const WEEKLYHOURALLOCATION = 24 * 7;
 // =============GENERATING THE RANDOM UNIQUE ID===========
 const randomIdGenerator = () => {
   let randomStringLength = 10;
@@ -38,8 +39,17 @@ const addTask = () => {
       hour: parseInt(hourField.value),
       type: "entry",
     };
-    taskList.push(taskObject);
-    displayTask();
+    if (taskObject.hour + calculateTotalHours() <= WEEKLYHOURALLOCATION) {
+      taskList.push(taskObject);
+      displayTask();
+      const toastLiveExample = document.getElementById("liveToast");
+      const toastBootstrap =
+        bootstrap.Toast.getOrCreateInstance(toastLiveExample);
+
+      toastBootstrap.show();
+    } else {
+      alert("HOUR ALLOCATION EXCEEDED!!");
+    }
   } else {
     alert("Please Enter all the fields!!!!");
   }
