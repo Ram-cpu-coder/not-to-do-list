@@ -11,7 +11,7 @@ const randomIdGenerator = () => {
   return randomString;
 };
 // ================ARRAY TASK LIST --- DEFAULT VALUE ======================
-const taskList = [
+let taskList = [
   {
     id: randomIdGenerator(),
     task: "Good Task",
@@ -35,7 +35,7 @@ const addTask = () => {
     const taskObject = {
       id: randomIdGenerator(),
       task: taskField.value,
-      hour: hourField.value,
+      hour: parseInt(hourField.value),
       type: "entry",
     };
     taskList.push(taskObject);
@@ -70,7 +70,7 @@ const displayTask = () => {
     </button>
     <button type="button" class="btn btn-danger" onclick = "delList('${
       item.id
-    })">
+    }')">
         <i class="fa-solid fa-trash"></i>
     </button>
     </td>
@@ -91,7 +91,7 @@ const displayTask = () => {
     </button>
     <button type="button" class="btn btn-danger" onclick = "delList('${
       item.id
-    })">
+    }')">
     <i class="fa-solid fa-trash"></i>
     </button>
     </td>
@@ -101,19 +101,41 @@ const displayTask = () => {
     goodListElement.innerHTML += goodTrValue;
     badListElement.innerHTML += badTrValue;
   });
+
+  const totalHourSpan = document.getElementById("totalHours");
+  totalHourSpan.innerText = calculateTotalHours();
+
+  const BadHours = document.getElementById("badHour");
+  BadHours.innerText = calculateBadHours();
 };
 // ==================FUNCTION TO CONVERT TASK========================================
 const convertTask = (id) => {
-  console.log("task converted");
+  //   console.log("task converted");i
   let task = taskList.find((task) => task.id == id);
   task.type = task.type === "entry" ? "bad" : "entry";
 
   displayTask();
 };
-// const delList = () => {
-//   let Arr = taskList.filter((item) => {
-//     item.id != "${item.id}";
-//   });
-//   //   return Arr;
-//   displayTask(Arr);
-// };
+
+const delList = (id) => {
+  if (confirm("Deleting task ....  Are you sure?")) {
+    taskList = taskList.filter((item) => {
+      return item.id != id;
+    });
+  }
+  //   console.log(taskList);
+
+  displayTask();
+};
+// ===================calculate total hours======================
+const calculateTotalHours = () => {
+  let totalHour = taskList.reduce((acc, item) => acc + item.hour, 0);
+  return totalHour;
+};
+// ========================bad calculateTotalHours=======================
+const calculateBadHours = () => {
+  let totalHour = taskList.reduce((acc, item) => {
+    return acc + (item.type === "bad" ? item.hour : 0);
+  }, 0);
+  return totalHour;
+};
